@@ -1,4 +1,6 @@
 """
+http://python-3-patterns-idioms-test.readthedocs.io/en/latest/Singleton.html
+
 The Singleton
 Possibly the simplest design pattern is the singleton, which is a way to provide one and only one object of a particular type. To accomplish this, you must take control of object creation out of the hands of the programmer. One convenient way to do this is to delegate to a single instance of a private nested inner class:
 """
