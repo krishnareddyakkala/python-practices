@@ -18,8 +18,8 @@ class A(object):
 class B(A):
     __metaclass__= final
 
-print B.__bases__
-print isinstance(B, final)
+print( B.__bases__)
+print(isinstance(B, final))
 
 # Produces compile-time error:
 class C(B):
