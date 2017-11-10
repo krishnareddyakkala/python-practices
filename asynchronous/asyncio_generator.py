@@ -27,13 +27,15 @@ def call_url(url):
 
     print('Starting {}'.format(url))
 
-    response = yield from aiohttp.get(url)
+    with aiohttp.ClientSession() as session:
 
-    data = yield from response.text()
+        response = yield from session.get(url)
 
-    print('{}: {} bytes: {}'.format(url, len(data), data))
+        data = yield from response.text()
 
-    return data
+        print('{}: {} bytes: {}'.format(url, len(data), data))
+
+        return data
 
 
 
@@ -70,14 +72,15 @@ urls = ['http://www.google.com', 'http://www.yandex.ru', 'http://www.python.org'
 async def call_url(url):
 
     print('Starting {}'.format(url))
+    async with aiohttp.ClientSession() as session:
 
-    response = await aiohttp.get(url)
+        response = await session.get(url)
 
-    data = await response.text()
+        data = await response.text()
 
-    print('{}: {} bytes: {}'.format(url, len(data), data))
+        print('{}: {} bytes: {}'.format(url, len(data), data))
 
-    return data
+        return data
 
 
 
